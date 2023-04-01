@@ -9,7 +9,7 @@ import simpleZoomToFit from "./demo/simpleZoomToFit";
 import simpleDynamicPorts from "./demo/simpleDynamicPorts";
 import AdvancedCloneSelected from "./demo/AdvancedCloneSelected";
 import ChainedDropDown from "./demo/ChainedDropDown";
-// import DragAndDrop from "./demo/DragAndDrop";
+import DragAndDrop from "./demo/DragAndDrop";
 
 // deleting line >> shift + right click
 

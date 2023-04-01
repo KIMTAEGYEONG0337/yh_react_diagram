@@ -13,7 +13,7 @@ class FilterNodeFactory extends AbstractReactFactory<
     }
 
     generateReactWidget(event: any) {
-        return <FilterNodeWidget engine={this.engine} node={event.model} />;
+        return <FilterNodeWidget node={event.model} engine={this.engine} />;
     }
 
     generateModel(event: any) {

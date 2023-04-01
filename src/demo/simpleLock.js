@@ -3,7 +3,7 @@ import {DiagramModel, DefaultNodeModel, DefaultLinkModel} from "@projectstorm/re
 import * as React from 'react';
 import { CanvasWidget} from "@projectstorm/react-canvas-core";
 import { DemoCanvasWidget} from "../helpers/DemoCanvasWidget";
-import {SelectNode} from "./CustomNode/SelectNode";
+import {SelectNode} from "./SelectNode/SelectNode";
 
 export default function simpleLock() {
     //1) setup the diagram engine

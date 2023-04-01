@@ -15,8 +15,8 @@ import createEngine, {
     DiagramModel
 } from "@projectstorm/react-diagrams";
 import { CanvasWidget } from "@projectstorm/react-canvas-core";
-import SelectNodeFactory from "./CustomNode/SelectNodeFactory";
-import {SelectNode} from "./CustomNode/SelectNode";
+import SelectNodeFactory from "./SelectNode/SelectNodeFactory";
+import {SelectNode} from "./SelectNode/SelectNode";
 import {FilterNode} from "./FilterNode/FilterNode";
 import "../styles.css";
 import {DemoCanvasWidget} from "../helpers/DemoCanvasWidget";

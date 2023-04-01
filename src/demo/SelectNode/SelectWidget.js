@@ -1,25 +1,23 @@
-import React, {FC, useState} from "react";
+import React, {FC, useRef, useState, useEffect} from "react";
 import { DiagramEngine } from "@projectstorm/react-diagrams";
-import {FilterNode} from "./FilterNode";
+import {SelectNode} from "./SelectNode";
 
-import {Container, Button, IconButton, Typography} from "@mui/material";
-import SettingsIcon from '@mui/icons-material/Settings';
-
+import {Container, IconButton, Typography} from "@mui/material";
+import SettingsIcon from "@mui/icons-material/Settings";
 import ModalPortal from "../MPodal/ModalPortal";
-import FilterModal from "./FilterModal";
+import SelectModal from "./SelectModal";
+
 import * as S from "../../adstyled";
 import "../../styles.css";
 
-export interface FilterNodeWidgetProps {
-    node: FilterNode;
+export interface SelectNodeWidgetAdvancedProps {
+    node: SelectNode;
     engine: DiagramEngine;
 }
 
-const FilterNodeWidget : FC<FilterNodeWidgetProps> = ({engine, node}) => {
+const SelectNodeWidget : FC<SelectNodeWidgetAdvancedProps> = ({ engine, node}) => {
 
     const [modalOpened, setModalOpened] = useState(false);
-
-    node.refresh();
 
     const handleOpen = () => {
         setModalOpened(true);
@@ -30,31 +28,26 @@ const FilterNodeWidget : FC<FilterNodeWidgetProps> = ({engine, node}) => {
     };
 
     return (
-        <div className="filter">
+        <div className="select">
             <S.Widget>
                 <S.Port
                     port={node.outPort}
                     engine={engine}
                     style={{ right: -4, top: "50%" }}
                 />
-                <S.Port
-                    port={node.inPort}
-                    engine={engine}
-                    style={{ left: -4, top: "50%" }}
-                />
                 <Container>
-                    <Typography>FILTER</Typography>
+                    <Typography>SELECT</Typography>
                     <IconButton onClick={handleOpen}><SettingsIcon /></IconButton>
                     {modalOpened && (
-                        <ModalPortal closePortal={handleClose} flag={"filter"}>
-                            <FilterModal dataSet={node.dataSet}/>
+                        <ModalPortal closePortal={handleClose} flag={"select"}>
+                            <SelectModal dataSet={node.dataSet}/>
                         </ModalPortal>
                     )}
                 </Container>
             </S.Widget>
-            <div id="filter-modal"></div>
+            <div id="select-modal"></div>
         </div>
     );
-}
+};
 
-export default FilterNodeWidget;
+export default SelectNodeWidget;

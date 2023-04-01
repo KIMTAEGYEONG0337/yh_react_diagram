@@ -6,8 +6,10 @@ import { TrayItemWidget } from './TrayItemWidget';
 import { DefaultNodeModel } from '@projectstorm/react-diagrams';
 import { CanvasWidget } from '@projectstorm/react-canvas-core';
 import { DemoCanvasWidget } from "../../helpers/DemoCanvasWidget";
-import SelectNodeFactory from "../CustomNode/SelectNodeFactory";
-import {SelectNode} from "../CustomNode/SelectNode";
+import SelectNodeFactory from "../SelectNode/SelectNodeFactory";
+import FilterNodeFactory from "../FilterNode/FilterNodeFactory";
+import {SelectNode} from "../SelectNode/SelectNode";
+import {FilterNode} from "../FilterNode/FilterNode";
 import createEngine, {
 	DefaultDiagramState,
 	DiagramModel
@@ -56,6 +58,7 @@ engine.getNodeFactories().registerFactory(new SelectNodeFactory());
 export class BodyWidget extends React.Component<BodyWidgetProps> {
 	render() {
 		this.props.app.getDiagramEngine().getNodeFactories().registerFactory(new SelectNodeFactory());
+		this.props.app.getDiagramEngine().getNodeFactories().registerFactory(new FilterNodeFactory());
 		return (
 			<S.Body>
 				<S.Header>
@@ -63,19 +66,20 @@ export class BodyWidget extends React.Component<BodyWidgetProps> {
 				</S.Header>
 				<S.Content>
 					<TrayWidget>
-						<TrayItemWidget model={{ type: 'in' }} name="In Node" color="rgb(192,255,0)" />
-						<TrayItemWidget model={{ type: 'out' }} name="Out Node" color="rgb(0,192,255)" />
+						<TrayItemWidget model={{ type: 'select' }} name="Select Node" color="rgb(192,255,0)" />
+						<TrayItemWidget model={{ type: 'filter' }} name="Filter Node" color="rgb(0,192,255)" />
 					</TrayWidget>
 					<S.Layer
 						onDrop={(event) => {
 							const data = JSON.parse(event.dataTransfer.getData('storm-diagram-node'));
 							const nodesCount = _.keys(this.props.app.getDiagramEngine().getModel().getNodes()).length;
 
-							let node: SelectNode = null;
-							if (data.type === 'in') {
+							let node = null;
+							if (data.type === 'select') {
 								node = new SelectNode(this.props.app.getDiagramEngine());
 							} else {
-								node = new SelectNode(this.props.app.getDiagramEngine());
+								node = new FilterNode(this.props.app.getDiagramEngine());
+								// node = new SelectNode(this.props.app.getDiagramEngine());
 							}
 							const point = this.props.app.getDiagramEngine().getRelativeMousePoint(event);
 							node.setPosition(point);
@@ -86,9 +90,9 @@ export class BodyWidget extends React.Component<BodyWidgetProps> {
 							event.preventDefault();
 						}}
 					>
-						<DemoCanvasWidget>
-							<CanvasWidget engine={this.props.app.getDiagramEngine()} />
-						</DemoCanvasWidget>
+						{/*<DemoCanvasWidget>*/}
+						<CanvasWidget className="canvas" engine={this.props.app.getDiagramEngine()} />
+						{/*</DemoCanvasWidget>*/}
 					</S.Layer>
 				</S.Content>
 			</S.Body>

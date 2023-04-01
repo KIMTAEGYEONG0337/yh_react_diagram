@@ -4,12 +4,14 @@ import {
     NodeModel,
     NodeModelGenerics,
 } from "@projectstorm/react-diagrams";
-import {values} from "lodash";
-// import PortModel from "../../PortModel";
 
 export class SelectNode extends NodeModel<NodeModelGenerics>{
-    s_value: string[] = [];
-    outPort = new DefaultPortModel(false, "result");
+    dataSet = {
+        table : '',
+        column : '',
+        value : [''],
+    }
+    outPort = new DefaultPortModel(false, "out");
 
     constructor(readonly engine: CanvasEngine) {
         super({ type: "select-node" });
@@ -17,7 +19,7 @@ export class SelectNode extends NodeModel<NodeModelGenerics>{
     }
 
     setValue(value: string[]) {
-        this.s_value = [...value];
+        this.dataSet.value = [...value];
         this.engine.repaintCanvas();
     }
 
@@ -25,7 +27,7 @@ export class SelectNode extends NodeModel<NodeModelGenerics>{
         // console.log(this.s_value)
         return {
             ...super.serialize(),
-            value: this.s_value
+            value: this.dataSet.value
         };
     }
 }
