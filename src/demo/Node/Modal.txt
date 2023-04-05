@@ -2,24 +2,22 @@ import {Autocomplete, Container, TextField, Typography, Button} from "@mui/mater
 import {Box} from "@mui/system";
 import React, {useState} from "react";
 
-const op = ["Between", "Like", "Equal"];
+const Modal = ({dataSet}) => {
 
-const FilterModal = ({dataSet}) => {
-
-    const [getOp, setOp] = useState('');
-    const [getCond, setCond] = useState('');
+    // const [getOp, setOp] = useState('');
+    // const [getCond, setCond] = useState('');
 
     console.log(dataSet);
 
-    const handleOp = (event, value) => {
-        setOp(value);
-    };
-    const handleCond = (event) => {
-        setCond(event.target.value);
-    };
+    // const handleOp = (event, value) => {
+    //     setOp(value);
+    // };
+    // const handleCond = (event) => {
+    //     setCond(event.target.value);
+    // };
     const handleClickSubmit = () => {
-        dataSet.op = getOp
-        dataSet.cond = getCond
+        // dataSet.op = getOp
+        // dataSet.cond = getCond
         alert("save");
         console.log("submit");
     };
@@ -70,4 +68,4 @@ const FilterModal = ({dataSet}) => {
     );
 };
 
-export default FilterModal;
+export default Modal;

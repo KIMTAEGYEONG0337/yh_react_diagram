@@ -12,6 +12,7 @@ const SelectModal = ({dataSet}) => {
         dataSet.table = getTable;
         dataSet.column = getColumn;
         dataSet.value = getColumn;
+        alert("save");
         console.log("submit");
     };
 

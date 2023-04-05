@@ -12,6 +12,28 @@ export class FilterNode extends NodeModel<NodeModelGenerics> {
         op : '',
         cond : '',
     }
+
+    onlineTransIsol = {
+        idx : 0,
+        acct_desc : '',
+        acct_type : '',
+        balance : 0,
+        device_info : '',
+        hhmissff : '',
+        in_pay_acc : '',
+        in_pay_bcd : '',
+        in_pay_name : '',
+        inpt_dttm : '',
+        out_pay_acc : '',
+        out_pay_bcd : '',
+        out_pay_name : '',
+        tot_amt : 0,
+        user_id : '',
+        user_no : 0,
+        user_type : '',
+        yyyymmdd : ''
+    }
+
     outPort = new DefaultPortModel(false, "result");
     inPort = new DefaultPortModel(true, "in");
 

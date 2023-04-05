@@ -30,7 +30,7 @@ const SelectNodeWidget : FC<SelectNodeWidgetAdvancedProps> = ({ engine, node}) =
     return (
         <div className="select">
             <S.Widget>
-                <S.Port
+                <S.OutPort
                     port={node.outPort}
                     engine={engine}
                     style={{ right: -4, top: "50%" }}

@@ -17,6 +17,10 @@ const ModalPortal = ({ children, closePortal, flag }) => {
             const dom = document.getElementById("select-modal");
             ref.current = dom;
         }
+        else if (document && flag == "save") {
+            const dom = document.getElementById("save-modal");
+            ref.current = dom;
+        }
         return () => {
             setMounted(false);
         };

@@ -4,6 +4,7 @@ import * as React from 'react';
 import { CanvasWidget} from "@projectstorm/react-canvas-core";
 import { DemoCanvasWidget} from "../helpers/DemoCanvasWidget";
 import {SelectNode} from "./SelectNode/SelectNode";
+import {Menu, MenuItem} from "@mui/material";
 
 export default function simpleLock() {
     //1) setup the diagram engine

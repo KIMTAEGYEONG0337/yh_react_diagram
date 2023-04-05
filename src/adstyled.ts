@@ -7,7 +7,7 @@ export const Widget = styled.div`
   width: 100px;
   height: 80px;
   background: #fff;
-  border-radius: 12px;
+  border-radius: 8px;
   position: relative;
   box-sizing: border-box;
   display: flex;
@@ -16,13 +16,28 @@ export const Widget = styled.div`
   justify-content: space-between;
 `;
 
-export const Port = styled(PortWidget)`
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  border: 2px solid #000;
-  position: absolute;
+export const OutPort = styled(PortWidget)`
   margin: -7px;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid #000000;
+  transition: ease-in 0.2s;
+  cursor: pointer;
+  transform: scale(1.7);
+  position: absolute;
+  opacity: 0.4;
+`;
+
+export const InPort = styled(PortWidget)`
+  margin: -7px;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid #000000;
+  transition: ease-in 0.2s;
+  cursor: pointer;
+  transform: scale(1.7);
+  position: absolute;
+  opacity: 0.4;
 `;
 
 export const Input = styled.input`
