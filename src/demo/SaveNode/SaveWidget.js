@@ -7,6 +7,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 
 import ModalPortal from "../MPodal/ModalPortal";
 import SaveModal from "./SaveModal";
+import SaveModal2 from "./SaveModal2";
 import * as S from "../../adstyled";
 import "../../styles.css";
 
@@ -42,7 +43,7 @@ const SaveNodeWidget : FC<SaveNodeWidgetProps> = ({engine, node}) => {
                     <IconButton onClick={handleOpen}><SettingsIcon /></IconButton>
                     {modalOpened && (
                         <ModalPortal closePortal={handleClose} flag={"save"}>
-                            <SaveModal dataSet={node.dataSet}/>
+                            <SaveModal2 dataSet={node.dataSet}/>
                         </ModalPortal>
                     )}
                 </Container>
