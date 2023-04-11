@@ -7,6 +7,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 
 import ModalPortal from "../MPodal/ModalPortal";
 import FilterModal from "./FilterModal";
+import FilterModal2 from "./FilterModal2";
 import * as S from "../../adstyled";
 import "../../styles.css";
 
@@ -47,7 +48,7 @@ const FilterNodeWidget : FC<FilterNodeWidgetProps> = ({engine, node}) => {
                     <IconButton onClick={handleOpen}><SettingsIcon /></IconButton>
                     {modalOpened && (
                         <ModalPortal closePortal={handleClose} flag={"filter"}>
-                            <FilterModal dataSet={node.dataSet}/>
+                            <FilterModal2 dataSet={node.dataSet}/>
                         </ModalPortal>
                     )}
                 </Container>

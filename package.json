@@ -8,6 +8,7 @@
     "@material-ui/core": "^4.12.4",
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.11.14",
+    "@mui/styles": "^5.11.16",
     "@mui/system": "^5.11.14",
     "@projectstorm/geometry": "^7.0.1",
     "@projectstorm/react-canvas-core": "^7.0.1",

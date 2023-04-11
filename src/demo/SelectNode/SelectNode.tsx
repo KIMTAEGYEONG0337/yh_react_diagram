@@ -12,6 +12,12 @@ export class SelectNode extends NodeModel<NodeModelGenerics>{
         value : [''],
     }
 
+    flow_attr = {
+        sql : '',
+        column_info : [''],
+        db_info : ''
+    }
+
     onlineTransIsol = {
         idx : 0,
         acct_desc : '',

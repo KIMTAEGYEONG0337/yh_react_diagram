@@ -6,6 +6,7 @@ import {Container, IconButton, Typography} from "@mui/material";
 import SettingsIcon from "@mui/icons-material/Settings";
 import ModalPortal from "../MPodal/ModalPortal";
 import SelectModal from "./SelectModal";
+import SelectModal2 from "./SelectModal2";
 
 import * as S from "../../adstyled";
 import "../../styles.css";
@@ -40,7 +41,7 @@ const SelectNodeWidget : FC<SelectNodeWidgetAdvancedProps> = ({ engine, node}) =
                     <IconButton onClick={handleOpen}><SettingsIcon /></IconButton>
                     {modalOpened && (
                         <ModalPortal closePortal={handleClose} flag={"select"}>
-                            <SelectModal dataSet={node.dataSet}/>
+                            <SelectModal2 flow_attr={node.flow_attr}/>
                         </ModalPortal>
                     )}
                 </Container>
