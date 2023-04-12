@@ -2,6 +2,7 @@ import {Container, TextField, Typography, Button, TextareaAutosize} from "@mui/m
 import {Box} from "@mui/system";
 import React, {useState} from "react";
 import {makeStyles} from '@mui/styles';
+import getFlowAttr from './getFlowAttr';
 
 const useStyles = makeStyles({
     container: {
@@ -32,9 +33,10 @@ const SelectModal2 = ({flow_attr}) => {
     const [attr, setAttr] = useState([]);
 
     const handleSave = () => {
-        flow_attr.sql = attr;
+        getFlowAttr(flow_attr, attr);
         alert("save");
         console.log("submit");
+        console.log(flow_attr);
     };
 
     return (
