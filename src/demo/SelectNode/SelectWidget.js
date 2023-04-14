@@ -36,7 +36,7 @@ const SelectNodeWidget : FC<SelectNodeWidgetAdvancedProps> = ({ engine, node}) =
             try {
                 const response = await axios.get('http://localhost:8080/api/data', {
                     params: {
-                        flow_attr: node.flow_attr
+                        prog_work_Flow_mng : node.prog_work_Flow_mng
                     }
                 });
                 console.log('Response data:', response.data);
@@ -62,7 +62,7 @@ const SelectNodeWidget : FC<SelectNodeWidgetAdvancedProps> = ({ engine, node}) =
                     <IconButton onClick={handleOpen}><SettingsIcon /></IconButton>
                     {modalOpened && (
                         <ModalPortal closePortal={handleClose} flag={"select"}>
-                            <SelectModal2 flow_attr={node.flow_attr}/>
+                            <SelectModal2 prog_work_Flow_mng={node.prog_work_Flow_mng}/>
                         </ModalPortal>
                     )}
                 </Container>

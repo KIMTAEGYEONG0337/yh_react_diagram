@@ -11,12 +11,20 @@ export class SelectNode extends NodeModel<NodeModelGenerics>{
         column : '',
         value : [''],
     }
-
-    flow_attr = {
-        sql : '',
-        column_info : [''],
-        db_info : 'PostgreSQL',
-        output : [-1],
+    prog_work_Flow_mng = {
+        flow_id : 0,
+        prog_id : 0,
+        flow_seq : 0,
+        flow_type : "",
+        flow_attr : {
+            sql : '',
+            column_info : [''],
+            db_info : 'PostgreSQL',
+            output : [-1],
+        },
+        flow_desc : "",
+        crtd_dttm : "",
+        updt_dttm : "",
     }
 
     onlineTransIsol = {

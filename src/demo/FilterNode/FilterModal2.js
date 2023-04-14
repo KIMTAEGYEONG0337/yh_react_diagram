@@ -20,6 +20,7 @@ import React, { useState } from "react";
 
 const FilterModal2 = ({ dataSet }) => {
     const fields = ["LOG_DATE", "LOG_TIME", "LOG_USER_ID", "LOG_PAY_ACC"];
+    // >> node.flow_attr.column_info
     const conditions = [">", "<", ">=", "<=", "=", "LIKE", "IN", "NOT LIKE"];
 
     const initialFieldState = fields.reduce((acc, field) => {

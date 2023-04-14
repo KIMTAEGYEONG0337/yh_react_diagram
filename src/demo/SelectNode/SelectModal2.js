@@ -28,14 +28,16 @@ const useStyles = makeStyles({
     }
 });
 
-const SelectModal2 = ({flow_attr}) => {
+const SelectModal2 = ({prog_work_Flow_mng}) => {
     const classes = useStyles();
     const [attr, setAttr] = useState([]);
 
     const handleSave = () => {
         alert("save");
-        flow_attr.sql = attr
-        flow_attr.column_info = getColumnInfo(attr);
+        prog_work_Flow_mng.flow_attr.sql = attr
+        // flow_attr.sql = attr
+        prog_work_Flow_mng.flow_attr.column_info =getColumnInfo(attr);
+        // flow_attr.column_info = getColumnInfo(attr);
         console.log("submit");
     };
 
@@ -47,7 +49,7 @@ const SelectModal2 = ({flow_attr}) => {
                     <TextareaAutosize
                         className={classes.textarea}
                         value={attr}
-                        defaultValue={flow_attr.sql}
+                        defaultValue={prog_work_Flow_mng.flow_attr.sql}
                         onChange={(e) => setAttr(e.target.value)}
                         rowsMin={5}
                         placeholder="여기에 입력하세요."
