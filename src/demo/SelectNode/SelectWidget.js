@@ -10,6 +10,7 @@ import SelectModal2 from "./SelectModal2";
 
 import * as S from "../../adstyled";
 import "../../styles.css";
+import axios from "axios";
 
 export interface SelectNodeWidgetAdvancedProps {
     node: SelectNode;
@@ -19,6 +20,7 @@ export interface SelectNodeWidgetAdvancedProps {
 const SelectNodeWidget : FC<SelectNodeWidgetAdvancedProps> = ({ engine, node}) => {
 
     const [modalOpened, setModalOpened] = useState(false);
+    const [data, setData] = useState([]); // NULL
 
     const handleOpen = () => {
         setModalOpened(true);
@@ -27,6 +29,25 @@ const SelectNodeWidget : FC<SelectNodeWidgetAdvancedProps> = ({ engine, node}) =
     const handleClose = () => {
         setModalOpened(false);
     };
+
+    useEffect(() => {
+        console.log('node.flow_attr has changed:', node.flow_attr);
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://localhost:8080/api/data', {
+                    params: {
+                        flow_attr: node.flow_attr
+                    }
+                });
+                console.log('Response data:', response.data);
+                setData(respose.data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchData();
+    }, [node.flow_attr]);
 
     return (
         <div className="select">
